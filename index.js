@@ -58,17 +58,14 @@
 
   
   //###########################################################
-  utf8ToBufferBrowser = function(utf8) {
-    var i, j, ref, result;
-    result = new Uint8Array(utf8.length);
-    for (i = j = 0, ref = utf8.length; (0 <= ref ? j < ref : j > ref); i = 0 <= ref ? ++j : --j) {
-      result[i] = utf8.charCodeAt(i);
-    }
-    return result.buffer;
-  };
-
   utf8ToBufferNode = function(utf8) {
     return Buffer.from(utf8, "utf8");
+  };
+
+  utf8ToBufferBrowser = function(utf8) {
+    var bytes;
+    bytes = (new TextEncoder()).encode(utf8);
+    return bytes.buffer;
   };
 
   //###########################################################
