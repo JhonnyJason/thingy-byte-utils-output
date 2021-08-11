@@ -16,5 +16,6 @@
     "bugs": {
         "url": "https://github.com/JhonnyJason/thingy-byte-utils/issues"
     },
-    "homepage": "https://github.com/JhonnyJason/thingy-byte-utils-output/#readme"
+    "homepage": "https://github.com/JhonnyJason/thingy-byte-utils-output/#readme",
+    "dependencies": {}
 }
