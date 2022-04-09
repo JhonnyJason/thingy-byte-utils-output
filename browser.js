@@ -33,23 +33,22 @@ hexChars.forEach(function(el) {
 });
 
 //###########################################################
+// export bytesToBigInt = (byteBuffer) ->
+//     byteBuffer = new Uint8Array(byteBuffer)
+//     value = 0n
+//     for byte,i in byteBuffer
+//         value += bigIntMap[byte] << (8n * bigIntMap[i])
+//     return value
 export var bytesToBigInt = function(byteBuffer) {
   var byte, i, j, len, value;
   byteBuffer = new Uint8Array(byteBuffer);
   value = 0n;
   for (i = j = 0, len = byteBuffer.length; j < len; i = ++j) {
     byte = byteBuffer[i];
-    value += bigIntMap[byte] << (8n * bigIntMap[i]);
+    value += BigInt(byte) << (8n * BigInt(i));
   }
   return value;
 };
-
-// export bytesToBigInt = (byteBuffer) ->
-//     byteBuffer = new Uint8Array(byteBuffer)
-//     value = 0n
-//     for byte,i in byteBuffer
-//         value += BigInt(byte) << (8n * BigInt(i))
-//     return value
 
 //###########################################################
 export var bytesToUtf8 = function(byteBuffer) {
@@ -57,9 +56,9 @@ export var bytesToUtf8 = function(byteBuffer) {
 };
 
 export var utf8ToBytes = function(utf8) {
-  var bytes;
-  bytes = encoder.encode(utf8);
-  return bytes.buffer;
+  // bytes = encoder.encode(utf8)
+  // return bytes.buffer
+  return encoder.encode(utf8);
 };
 
 //###########################################################
@@ -80,5 +79,6 @@ export var hexToBytes = function(hex) {
   for (i = j = 0, ref = hex.length; j < ref; i = j += 2) {
     result[i / 2] = frontHexMap[hex[i]] + backHexMap[hex[i + 1]];
   }
-  return result.buffer;
+  // return result.buffer
+  return result;
 };
