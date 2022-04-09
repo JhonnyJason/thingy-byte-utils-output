@@ -20,7 +20,9 @@ bigIntMap = slots.map(function(el, idx) {
 //###########################################################
 hexChars = Array.from("0123456789abcdef");
 
-frontHexMap = hexChars.forEach(function(el) {
+frontHexMap = {};
+
+hexChars.forEach(function(el) {
   return frontHexMap[el] = 16 * parseInt(el, 16);
 });
 
